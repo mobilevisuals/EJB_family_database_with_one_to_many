@@ -87,7 +87,9 @@ public class PersonReal implements Serializable {
 
     @Override
     public String toString() {
-        return "manytoonetest.Person[ id=" + id + " ]";
+        return "PersonReal{" + "fname=" + fname + ", lname=" + lname + ", family=" + family + '}';
     }
+
+
     
 }
