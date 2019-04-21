@@ -9,10 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import javax.persistence.NonUniqueResultException;
-import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TransactionRequiredException;
@@ -58,7 +56,7 @@ public class PersonHandler2 implements PersonHandler2Local {
             //vi får inte själva hantera dem:
             //¨  em.getTransaction().commit();
         }
-        // em.close();
+        // em.close();app-servern stänger resurserna, så vi ska inte stänga dem
     }
 
 //automatgenererad metod
@@ -122,6 +120,7 @@ public class PersonHandler2 implements PersonHandler2Local {
         return 0.0;
     }
 
+    //this is how to update with JPQL:
     @Override
     public boolean changeName(String fname,String newFirstName) {
         boolean status = true;
@@ -138,7 +137,7 @@ public class PersonHandler2 implements PersonHandler2Local {
         } catch (NoResultException | NonUniqueResultException e) {
             e.printStackTrace();
         }
-     
+     //bra att returnera status ifrån metoder istället för att bara göra dem till void
         return status;
     }
 

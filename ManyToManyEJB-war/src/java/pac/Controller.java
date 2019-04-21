@@ -21,10 +21,7 @@ public class Controller implements Serializable {
     */
     @EJB
     private PersonHandler2Local personHandler2;
-
-
-
-    private String firstName;
+private String firstName;
     private String lastName;
     private String oldname,newname;
     private PersonReal user;
@@ -86,7 +83,7 @@ public class Controller implements Serializable {
     }
     
     
-    
+   //här fungerar controllern som en fasad, som anropar EJB 
     public void remove()
     {
     deleted=personHandler2.deletePerson(firstName, lastName);
